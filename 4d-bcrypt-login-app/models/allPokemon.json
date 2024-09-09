@@ -1,0 +1,920 @@
+[
+  {
+    "PokedexNo": 1,
+    "Name": "Bulbasaur",
+    "Type": "Grass, Poison",
+    "Moves": ["Tackle", "Vine Whip", "Razor Leaf"]
+  },
+  {
+    "PokedexNo": 2,
+    "Name": "Ivysaur",
+    "Type": "Grass, Poison",
+    "Moves": ["Tackle", "Vine Whip", "Razor Leaf", "Solar Beam"]
+  },
+  {
+    "PokedexNo": 3,
+    "Name": "Venusaur",
+    "Type": "Grass, Poison",
+    "Moves": ["Tackle", "Vine Whip", "Razor Leaf", "Solar Beam", "Sludge Bomb"]
+  },
+  {
+    "PokedexNo": 4,
+    "Name": "Charmander",
+    "Type": "Fire",
+    "Moves": ["Scratch", "Ember", "Flamethrower"]
+  },
+  {
+    "PokedexNo": 5,
+    "Name": "Charmeleon",
+    "Type": "Fire",
+    "Moves": ["Scratch", "Ember", "Flamethrower", "Dragon Claw"]
+  },
+  {
+    "PokedexNo": 6,
+    "Name": "Charizard",
+    "Type": "Fire, Flying",
+    "Moves": ["Scratch", "Ember", "Flamethrower", "Dragon Claw", "Dragon Rage"]
+  },
+  {
+    "PokedexNo": 7,
+    "Name": "Squirtle",
+    "Type": "Water",
+    "Moves": ["Tackle", "Bubble", "Water Gun"]
+  },
+  {
+    "PokedexNo": 8,
+    "Name": "Wartortle",
+    "Type": "Water",
+    "Moves": ["Tackle", "Bubble", "Water Gun", "Hydro Pump"]
+  },
+  {
+    "PokedexNo": 9,
+    "Name": "Blastoise",
+    "Type": "Water",
+    "Moves": ["Tackle", "Bubble", "Water Gun", "Hydro Pump", "Skull Bash"]
+  },
+  {
+    "PokedexNo": 10,
+    "Name": "Caterpie",
+    "Type": "Bug",
+    "Moves": ["Tackle", "String Shot"]
+  },
+  {
+    "PokedexNo": 11,
+    "Name": "Metapod",
+    "Type": "Bug",
+    "Moves": ["Harden"]
+  },
+  {
+    "PokedexNo": 12,
+    "Name": "Butterfree",
+    "Type": "Bug, Flying",
+    "Moves": ["Confusion", "Gust", "Psychic"]
+  },
+  {
+    "PokedexNo": 13,
+    "Name": "Weedle",
+    "Type": "Bug, Poison",
+    "Moves": ["Poison Sting", "String Shot"]
+  },
+  {
+    "PokedexNo": 14,
+    "Name": "Kakuna",
+    "Type": "Bug, Poison",
+    "Moves": ["Harden"]
+  },
+  {
+    "PokedexNo": 15,
+    "Name": "Beedrill",
+    "Type": "Bug, Poison",
+    "Moves": ["Fury Attack", "Twineedle"]
+  },
+  {
+    "PokedexNo": 16,
+    "Name": "Pidgey",
+    "Type": "Normal, Flying",
+    "Moves": ["Tackle", "Gust"]
+  },
+  {
+    "PokedexNo": 17,
+    "Name": "Pidgeotto",
+    "Type": "Normal, Flying",
+    "Moves": ["Tackle", "Gust", "Wing Attack"]
+  },
+  {
+    "PokedexNo": 18,
+    "Name": "Pidgeot",
+    "Type": "Normal, Flying",
+    "Moves": ["Tackle", "Gust", "Wing Attack", "Whirlwind"]
+  },
+  {
+    "PokedexNo": 19,
+    "Name": "Rattata",
+    "Type": "Normal",
+    "Moves": ["Tackle", "Quick Attack"]
+  },
+  {
+    "PokedexNo": 20,
+    "Name": "Raticate",
+    "Type": "Normal",
+    "Moves": ["Tackle", "Quick Attack", "Hyper Fang"]
+  },
+  {
+    "PokedexNo": 21,
+    "Name": "Spearow",
+    "Type": "Normal, Flying",
+    "Moves": ["Peck", "Drill Peck"]
+  },
+  {
+    "PokedexNo": 22,
+    "Name": "Fearow",
+    "Type": "Normal, Flying",
+    "Moves": ["Peck", "Drill Peck", "Sky Attack"]
+  },
+  {
+    "PokedexNo": 23,
+    "Name": "Ekans",
+    "Type": "Poison",
+    "Moves": ["Wrap", "Bite", "Poison Sting"]
+  },
+  {
+    "PokedexNo": 24,
+    "Name": "Arbok",
+    "Type": "Poison",
+    "Moves": ["Wrap", "Bite", "Poison Sting", "Glare"]
+  },
+  {
+    "PokedexNo": 25,
+    "Name": "Pikachu",
+    "Type": "Electric",
+    "Moves": ["Thunder Shock", "Quick Attack", "Thunderbolt"]
+  },
+  {
+    "PokedexNo": 26,
+    "Name": "Raichu",
+    "Type": "Electric",
+    "Moves": ["Thunder Shock", "Quick Attack", "Thunderbolt", "Thunder"]
+  },
+  {
+    "PokedexNo": 27,
+    "Name": "Sandshrew",
+    "Type": "Ground",
+    "Moves": ["Scratch", "Sand Attack"]
+  },
+  {
+    "PokedexNo": 28,
+    "Name": "Sandslash",
+    "Type": "Ground",
+    "Moves": ["Scratch", "Sand Attack", "Slash"]
+  },
+  {
+    "PokedexNo": 29,
+    "Name": "Nidoran♀",
+    "Type": "Poison",
+    "Moves": ["Peck", "Toxic", "Double Kick"]
+  },
+  {
+    "PokedexNo": 30,
+    "Name": "Nidorina",
+    "Type": "Poison",
+    "Moves": ["Peck", "Toxic", "Double Kick", "Poison Sting"]
+  },
+  {
+    "PokedexNo": 31,
+    "Name": "Nidoqueen",
+    "Type": "Poison, Ground",
+    "Moves": ["Peck", "Toxic", "Double Kick", "Poison Sting", "Earthquake"]
+  },
+  {
+    "PokedexNo": 32,
+    "Name": "Nidoran♂",
+    "Type": "Poison",
+    "Moves": ["Peck", "Toxic", "Double Kick"]
+  },
+  {
+    "PokedexNo": 33,
+    "Name": "Nidorino",
+    "Type": "Poison",
+    "Moves": ["Peck", "Toxic", "Double Kick", "Horn Attack"]
+  },
+  {
+    "PokedexNo": 34,
+    "Name": "Nidoking",
+    "Type": "Poison, Ground",
+    "Moves": ["Peck", "Toxic", "Double Kick", "Horn Attack", "Earthquake"]
+  },
+  {
+    "PokedexNo": 35,
+    "Name": "Clefairy",
+    "Type": "Fairy",
+    "Moves": ["Pound", "Double Slap", "Moonblast"]
+  },
+  {
+    "PokedexNo": 36,
+    "Name": "Clefable",
+    "Type": "Fairy",
+    "Moves": ["Pound", "Double Slap", "Moonblast", "Meteor Mash"]
+  },
+  {
+    "PokedexNo": 37,
+    "Name": "Vulpix",
+    "Type": "Fire",
+    "Moves": ["Ember", "Quick Attack", "Flamethrower"]
+  },
+  {
+    "PokedexNo": 38,
+    "Name": "Ninetales",
+    "Type": "Fire",
+    "Moves": ["Ember", "Quick Attack", "Flamethrower", "Fire Blast"]
+  },
+  {
+    "PokedexNo": 39,
+    "Name": "Jigglypuff",
+    "Type": "Normal, Fairy",
+    "Moves": ["Pound", "Sing", "Play Nice"]
+  },
+  {
+    "PokedexNo": 40,
+    "Name": "Wigglytuff",
+    "Type": "Normal, Fairy",
+    "Moves": ["Pound", "Sing", "Play Nice", "Hyper Beam"]
+  },
+  {
+    "PokedexNo": 41,
+    "Name": "Zubat",
+    "Type": "Poison, Flying",
+    "Moves": ["Bite", "Poison Fang", "Air Cutter"]
+  },
+  {
+    "PokedexNo": 42,
+    "Name": "Golbat",
+    "Type": "Poison, Flying",
+    "Moves": ["Bite", "Poison Fang", "Air Cutter", "Poison Jab"]
+  },
+  {
+    "PokedexNo": 43,
+    "Name": "Oddish",
+    "Type": "Grass, Poison",
+    "Moves": ["Absorb", "Poison Powder", "Sleep Powder"]
+  },
+  {
+    "PokedexNo": 44,
+    "Name": "Gloom",
+    "Type": "Grass, Poison",
+    "Moves": ["Absorb", "Poison Powder", "Sleep Powder", "Sludge Bomb"]
+  },
+  {
+    "PokedexNo": 45,
+    "Name": "Vileplume",
+    "Type": "Grass, Poison",
+    "Moves": [
+      "Absorb",
+      "Poison Powder",
+      "Sleep Powder",
+      "Sludge Bomb",
+      "Solar Beam"
+    ]
+  },
+  {
+    "PokedexNo": 46,
+    "Name": "Paras",
+    "Type": "Bug, Grass",
+    "Moves": ["Scratch", "Absorb", "Spore"]
+  },
+  {
+    "PokedexNo": 47,
+    "Name": "Parasect",
+    "Type": "Bug, Grass",
+    "Moves": ["Scratch", "Absorb", "Spore", "X-Scissor"]
+  },
+  {
+    "PokedexNo": 48,
+    "Name": "Venonat",
+    "Type": "Bug, Poison",
+    "Moves": ["Tackle", "Poison Powder", "Confusion"]
+  },
+  {
+    "PokedexNo": 49,
+    "Name": "Venomoth",
+    "Type": "Bug, Poison",
+    "Moves": ["Tackle", "Poison Powder", "Confusion", "Bug Buzz"]
+  },
+  {
+    "PokedexNo": 50,
+    "Name": "Diglett",
+    "Type": "Ground",
+    "Moves": ["Scratch", "Mud Slap", "Dig"]
+  },
+  {
+    "PokedexNo": 51,
+    "Name": "Dugtrio",
+    "Type": "Ground",
+    "Moves": ["Scratch", "Mud Slap", "Dig", "Earthquake"]
+  },
+  {
+    "PokedexNo": 52,
+    "Name": "Meowth",
+    "Type": "Normal",
+    "Moves": ["Scratch", "Bite", "Fury Swipes"]
+  },
+  {
+    "PokedexNo": 53,
+    "Name": "Persian",
+    "Type": "Normal",
+    "Moves": ["Scratch", "Bite", "Fury Swipes", "Slash"]
+  },
+  {
+    "PokedexNo": 54,
+    "Name": "Psyduck",
+    "Type": "Water",
+    "Moves": ["Scratch", "Water Gun", "Confusion"]
+  },
+  {
+    "PokedexNo": 55,
+    "Name": "Golduck",
+    "Type": "Water",
+    "Moves": ["Scratch", "Water Gun", "Confusion", "Hydro Pump"]
+  },
+  {
+    "PokedexNo": 56,
+    "Name": "Mankey",
+    "Type": "Fighting",
+    "Moves": ["Scratch", "Karate Chop", "Low Sweep"]
+  },
+  {
+    "PokedexNo": 57,
+    "Name": "Primeape",
+    "Type": "Fighting",
+    "Moves": ["Scratch", "Karate Chop", "Low Sweep", "Close Combat"]
+  },
+  {
+    "PokedexNo": 58,
+    "Name": "Growlithe",
+    "Type": "Fire",
+    "Moves": ["Bite", "Ember", "Flame Wheel"]
+  },
+  {
+    "PokedexNo": 59,
+    "Name": "Arcanine",
+    "Type": "Fire",
+    "Moves": ["Bite", "Ember", "Flame Wheel", "Fire Blast"]
+  },
+  {
+    "PokedexNo": 60,
+    "Name": "Poliwag",
+    "Type": "Water",
+    "Moves": ["Bubble", "Hypnosis", "Bubble Beam"]
+  },
+  {
+    "PokedexNo": 61,
+    "Name": "Poliwhirl",
+    "Type": "Water",
+    "Moves": ["Bubble", "Hypnosis", "Bubble Beam", "Scald"]
+  },
+  {
+    "PokedexNo": 62,
+    "Name": "Poliwrath",
+    "Type": "Water, Fighting",
+    "Moves": ["Bubble", "Hypnosis", "Bubble Beam", "Scald", "Dynamic Punch"]
+  },
+  {
+    "PokedexNo": 63,
+    "Name": "Abra",
+    "Type": "Psychic",
+    "Moves": ["Teleport"]
+  },
+  {
+    "PokedexNo": 64,
+    "Name": "Kadabra",
+    "Type": "Psychic",
+    "Moves": ["Teleport", "Psychic"]
+  },
+  {
+    "PokedexNo": 65,
+    "Name": "Alakazam",
+    "Type": "Psychic",
+    "Moves": ["Teleport", "Psychic", "Focus Blast"]
+  },
+  {
+    "PokedexNo": 66,
+    "Name": "Machop",
+    "Type": "Fighting",
+    "Moves": ["Low Kick", "Karate Chop", "Brick Break"]
+  },
+  {
+    "PokedexNo": 67,
+    "Name": "Machoke",
+    "Type": "Fighting",
+    "Moves": ["Low Kick", "Karate Chop", "Brick Break", "Cross Chop"]
+  },
+  {
+    "PokedexNo": 68,
+    "Name": "Machamp",
+    "Type": "Fighting",
+    "Moves": [
+      "Low Kick",
+      "Karate Chop",
+      "Brick Break",
+      "Cross Chop",
+      "Dynamic Punch"
+    ]
+  },
+  {
+    "PokedexNo": 69,
+    "Name": "Bellsprout",
+    "Type": "Grass, Poison",
+    "Moves": ["Vine Whip", "Acid", "Sludge Bomb"]
+  },
+  {
+    "PokedexNo": 70,
+    "Name": "Weepinbell",
+    "Type": "Grass, Poison",
+    "Moves": ["Vine Whip", "Acid", "Sludge Bomb", "Power Whip"]
+  },
+  {
+    "PokedexNo": 71,
+    "Name": "Victreebel",
+    "Type": "Grass, Poison",
+    "Moves": ["Vine Whip", "Acid", "Sludge Bomb", "Power Whip", "Solar Beam"]
+  },
+  {
+    "PokedexNo": 72,
+    "Name": "Tentacool",
+    "Type": "Water, Poison",
+    "Moves": ["Bubble", "Poison Sting", "Acid"]
+  },
+  {
+    "PokedexNo": 73,
+    "Name": "Tentacruel",
+    "Type": "Water, Poison",
+    "Moves": ["Bubble", "Poison Sting", "Acid", "Hydro Pump"]
+  },
+  {
+    "PokedexNo": 74,
+    "Name": "Geodude",
+    "Type": "Rock, Ground",
+    "Moves": ["Tackle", "Rock Throw", "Magnitude"]
+  },
+  {
+    "PokedexNo": 75,
+    "Name": "Graveler",
+    "Type": "Rock, Ground",
+    "Moves": ["Tackle", "Rock Throw", "Magnitude", "Rock Slide"]
+  },
+  {
+    "PokedexNo": 76,
+    "Name": "Golem",
+    "Type": "Rock, Ground",
+    "Moves": ["Tackle", "Rock Throw", "Magnitude", "Rock Slide", "Earthquake"]
+  },
+  {
+    "PokedexNo": 77,
+    "Name": "Ponyta",
+    "Type": "Fire",
+    "Moves": ["Ember", "Stomp", "Flame Charge"]
+  },
+  {
+    "PokedexNo": 78,
+    "Name": "Rapidash",
+    "Type": "Fire",
+    "Moves": ["Ember", "Stomp", "Flame Charge", "Fire Blast"]
+  },
+  {
+    "PokedexNo": 79,
+    "Name": "Slowpoke",
+    "Type": "Water, Psychic",
+    "Moves": ["Tackle", "Confusion", "Water Gun"]
+  },
+  {
+    "PokedexNo": 80,
+    "Name": "Slowbro",
+    "Type": "Water, Psychic",
+    "Moves": ["Tackle", "Confusion", "Water Gun", "Psychic"]
+  },
+  {
+    "PokedexNo": 81,
+    "Name": "Magnemite",
+    "Type": "Electric, Steel",
+    "Moves": ["Thunder Shock", "Magnet Bomb", "Thunder Wave"]
+  },
+  {
+    "PokedexNo": 82,
+    "Name": "Magneton",
+    "Type": "Electric, Steel",
+    "Moves": ["Thunder Shock", "Magnet Bomb", "Thunder Wave", "Zap Cannon"]
+  },
+  {
+    "PokedexNo": 83,
+    "Name": "Farfetch'd",
+    "Type": "Normal, Flying",
+    "Moves": ["Peck", "Cut", "Fury Cutter"]
+  },
+  {
+    "PokedexNo": 84,
+    "Name": "Doduo",
+    "Type": "Normal, Flying",
+    "Moves": ["Peck", "Quick Attack", "Drill Peck"]
+  },
+  {
+    "PokedexNo": 85,
+    "Name": "Dodrio",
+    "Type": "Normal, Flying",
+    "Moves": ["Peck", "Quick Attack", "Drill Peck", "Brave Bird"]
+  },
+  {
+    "PokedexNo": 86,
+    "Name": "Seel",
+    "Type": "Water",
+    "Moves": ["Ice Shard", "Headbutt", "Aqua Jet"]
+  },
+  {
+    "PokedexNo": 87,
+    "Name": "Dewgong",
+    "Type": "Water, Ice",
+    "Moves": ["Ice Shard", "Headbutt", "Aqua Jet", "Blizzard"]
+  },
+  {
+    "PokedexNo": 88,
+    "Name": "Grimer",
+    "Type": "Poison",
+    "Moves": ["Mud Slap", "Poison Jab", "Sludge"]
+  },
+  {
+    "PokedexNo": 89,
+    "Name": "Muk",
+    "Type": "Poison",
+    "Moves": ["Mud Slap", "Poison Jab", "Sludge", "Gunk Shot"]
+  },
+  {
+    "PokedexNo": 90,
+    "Name": "Shellder",
+    "Type": "Water",
+    "Moves": ["Tackle", "Ice Shard", "Icy Wind"]
+  },
+  {
+    "PokedexNo": 91,
+    "Name": "Cloyster",
+    "Type": "Water, Ice",
+    "Moves": ["Tackle", "Ice Shard", "Icy Wind", "Blizzard"]
+  },
+  {
+    "PokedexNo": 92,
+    "Name": "Gastly",
+    "Type": "Ghost, Poison",
+    "Moves": ["Lick", "Spite", "Sludge Bomb"]
+  },
+  {
+    "PokedexNo": 93,
+    "Name": "Haunter",
+    "Type": "Ghost, Poison",
+    "Moves": ["Lick", "Spite", "Sludge Bomb", "Shadow Ball"]
+  },
+  {
+    "PokedexNo": 94,
+    "Name": "Gengar",
+    "Type": "Ghost, Poison",
+    "Moves": ["Lick", "Spite", "Sludge Bomb", "Shadow Ball", "Thunderbolt"]
+  },
+  {
+    "PokedexNo": 95,
+    "Name": "Onix",
+    "Type": "Rock, Ground",
+    "Moves": ["Tackle", "Rock Throw", "Rock Slide", "Sandstorm"]
+  },
+  {
+    "PokedexNo": 96,
+    "Name": "Drowzee",
+    "Type": "Psychic",
+    "Moves": ["Pound", "Confusion", "Headbutt"]
+  },
+  {
+    "PokedexNo": 97,
+    "Name": "Hypno",
+    "Type": "Psychic",
+    "Moves": ["Pound", "Confusion", "Headbutt", "Psychic"]
+  },
+  {
+    "PokedexNo": 98,
+    "Name": "Krabby",
+    "Type": "Water",
+    "Moves": ["Bubble", "Mud Shot", "Vice Grip"]
+  },
+  {
+    "PokedexNo": 99,
+    "Name": "Kingler",
+    "Type": "Water",
+    "Moves": ["Bubble", "Mud Shot", "Vice Grip", "Crabhammer"]
+  },
+  {
+    "PokedexNo": 100,
+    "Name": "Voltorb",
+    "Type": "Electric",
+    "Moves": ["Spark", "Rollout", "Charge Beam"]
+  },
+  {
+    "PokedexNo": 101,
+    "Name": "Electrode",
+    "Type": "Electric",
+    "Moves": ["Spark", "Rollout", "Charge Beam", "Thunderbolt"]
+  },
+  {
+    "PokedexNo": 102,
+    "Name": "Exeggcute",
+    "Type": "Grass, Psychic",
+    "Moves": ["Barrage", "Confusion", "Psychic"]
+  },
+  {
+    "PokedexNo": 103,
+    "Name": "Exeggutor",
+    "Type": "Grass, Psychic",
+    "Moves": ["Barrage", "Confusion", "Psychic", "Solar Beam"]
+  },
+  {
+    "PokedexNo": 104,
+    "Name": "Cubone",
+    "Type": "Ground",
+    "Moves": ["Mud Slap", "Bone Club", "Bonemerang"]
+  },
+  {
+    "PokedexNo": 105,
+    "Name": "Marowak",
+    "Type": "Ground",
+    "Moves": ["Mud Slap", "Bone Club", "Bonemerang", "Earthquake"]
+  },
+  {
+    "PokedexNo": 106,
+    "Name": "Hitmonlee",
+    "Type": "Fighting",
+    "Moves": ["Low Kick", "Revenge", "Double Kick"]
+  },
+  {
+    "PokedexNo": 107,
+    "Name": "Hitmonchan",
+    "Type": "Fighting",
+    "Moves": ["Low Kick", "Revenge", "Double Kick", "Thunder Punch"]
+  },
+  {
+    "PokedexNo": 108,
+    "Name": "Lickitung",
+    "Type": "Normal",
+    "Moves": ["Lick", "Body Slam", "Power Whip"]
+  },
+  {
+    "PokedexNo": 109,
+    "Name": "Koffing",
+    "Type": "Poison",
+    "Moves": ["Tackle", "Sludge", "Sludge Bomb"]
+  },
+  {
+    "PokedexNo": 110,
+    "Name": "Weezing",
+    "Type": "Poison",
+    "Moves": ["Tackle", "Sludge", "Sludge Bomb", "Explosion"]
+  },
+  {
+    "PokedexNo": 111,
+    "Name": "Rhyhorn",
+    "Type": "Ground, Rock",
+    "Moves": ["Tackle", "Horn Attack", "Rock Slide"]
+  },
+  {
+    "PokedexNo": 112,
+    "Name": "Rhydon",
+    "Type": "Ground, Rock",
+    "Moves": ["Tackle", "Horn Attack", "Rock Slide", "Earthquake"]
+  },
+  {
+    "PokedexNo": 113,
+    "Name": "Chansey",
+    "Type": "Normal",
+    "Moves": ["Pound", "Egg Bomb", "Soft-Boiled"]
+  },
+  {
+    "PokedexNo": 114,
+    "Name": "Tangela",
+    "Type": "Grass",
+    "Moves": ["Vine Whip", "Sludge Bomb", "Power Whip"]
+  },
+  {
+    "PokedexNo": 115,
+    "Name": "Kangaskhan",
+    "Type": "Normal",
+    "Moves": ["Bite", "Dizzy Punch", "Earthquake"]
+  },
+  {
+    "PokedexNo": 116,
+    "Name": "Horsea",
+    "Type": "Water",
+    "Moves": ["Bubble", "Bubble Beam", "Dragon Pulse"]
+  },
+  {
+    "PokedexNo": 117,
+    "Name": "Seadra",
+    "Type": "Water",
+    "Moves": ["Bubble", "Bubble Beam", "Dragon Pulse", "Hydro Pump"]
+  },
+  {
+    "PokedexNo": 118,
+    "Name": "Goldeen",
+    "Type": "Water",
+    "Moves": ["Peck", "Water Pulse", "Horn Attack"]
+  },
+  {
+    "PokedexNo": 119,
+    "Name": "Seaking",
+    "Type": "Water",
+    "Moves": ["Peck", "Water Pulse", "Horn Attack", "Megahorn"]
+  },
+  {
+    "PokedexNo": 120,
+    "Name": "Staryu",
+    "Type": "Water",
+    "Moves": ["Tackle", "Bubble", "Swift"]
+  },
+  {
+    "PokedexNo": 121,
+    "Name": "Starmie",
+    "Type": "Water, Psychic",
+    "Moves": ["Tackle", "Bubble", "Swift", "Psychic"]
+  },
+  {
+    "PokedexNo": 122,
+    "Name": "Mr. Mime",
+    "Type": "Psychic, Fairy",
+    "Moves": ["Pound", "Confusion", "Psychic"]
+  },
+  {
+    "PokedexNo": 123,
+    "Name": "Scyther",
+    "Type": "Bug, Flying",
+    "Moves": ["Quick Attack", "Fury Cutter", "Wing Attack"]
+  },
+  {
+    "PokedexNo": 124,
+    "Name": "Jynx",
+    "Type": "Ice, Psychic",
+    "Moves": ["Pound", "Lick", "Ice Punch"]
+  },
+  {
+    "PokedexNo": 125,
+    "Name": "Electabuzz",
+    "Type": "Electric",
+    "Moves": ["Thunder Shock", "Thunder Punch", "Thunderbolt"]
+  },
+  {
+    "PokedexNo": 126,
+    "Name": "Magmar",
+    "Type": "Fire",
+    "Moves": ["Ember", "Flamethrower", "Fire Punch"]
+  },
+  {
+    "PokedexNo": 127,
+    "Name": "Pinsir",
+    "Type": "Bug",
+    "Moves": ["Vice Grip", "X-Scissor", "Submission"]
+  },
+  {
+    "PokedexNo": 128,
+    "Name": "Tauros",
+    "Type": "Normal",
+    "Moves": ["Tackle", "Horn Attack", "Earthquake"]
+  },
+  {
+    "PokedexNo": 129,
+    "Name": "Magikarp",
+    "Type": "Water",
+    "Moves": ["Splash"]
+  },
+  {
+    "PokedexNo": 130,
+    "Name": "Gyarados",
+    "Type": "Water, Flying",
+    "Moves": ["Bite", "Dragon Pulse", "Hydro Pump"]
+  },
+  {
+    "PokedexNo": 131,
+    "Name": "Lapras",
+    "Type": "Water, Ice",
+    "Moves": ["Ice Shard", "Body Slam", "Surf"]
+  },
+  {
+    "PokedexNo": 132,
+    "Name": "Ditto",
+    "Type": "Normal",
+    "Moves": ["Transform"]
+  },
+  {
+    "PokedexNo": 133,
+    "Name": "Eevee",
+    "Type": "Normal",
+    "Moves": ["Tackle", "Quick Attack", "Bite"]
+  },
+  {
+    "PokedexNo": 134,
+    "Name": "Vaporeon",
+    "Type": "Water",
+    "Moves": ["Tackle", "Quick Attack", "Water Gun"]
+  },
+  {
+    "PokedexNo": 135,
+    "Name": "Jolteon",
+    "Type": "Electric",
+    "Moves": ["Tackle", "Quick Attack", "Thunder Shock"]
+  },
+  {
+    "PokedexNo": 136,
+    "Name": "Flareon",
+    "Type": "Fire",
+    "Moves": ["Tackle", "Quick Attack", "Ember"]
+  },
+  {
+    "PokedexNo": 137,
+    "Name": "Porygon",
+    "Type": "Normal",
+    "Moves": ["Tackle", "Conversion", "Tri Attack"]
+  },
+  {
+    "PokedexNo": 138,
+    "Name": "Omanyte",
+    "Type": "Rock, Water",
+    "Moves": ["Water Gun", "Mud Shot", "Rock Tomb"]
+  },
+  {
+    "PokedexNo": 139,
+    "Name": "Omastar",
+    "Type": "Rock, Water",
+    "Moves": ["Water Gun", "Mud Shot", "Rock Tomb", "Hydro Pump"]
+  },
+  {
+    "PokedexNo": 140,
+    "Name": "Kabuto",
+    "Type": "Rock, Water",
+    "Moves": ["Scratch", "Mud Shot", "Rock Tomb"]
+  },
+  {
+    "PokedexNo": 141,
+    "Name": "Kabutops",
+    "Type": "Rock, Water",
+    "Moves": ["Scratch", "Mud Shot", "Rock Tomb", "Stone Edge"]
+  },
+  {
+    "PokedexNo": 142,
+    "Name": "Aerodactyl",
+    "Type": "Rock, Flying",
+    "Moves": ["Bite", "Steel Wing", "Rock Slide"]
+  },
+  {
+    "PokedexNo": 143,
+    "Name": "Snorlax",
+    "Type": "Normal",
+    "Moves": ["Tackle", "Body Slam", "Earthquake"]
+  },
+  {
+    "PokedexNo": 144,
+    "Name": "Articuno",
+    "Type": "Ice, Flying",
+    "Moves": ["Peck", "Blizzard", "Ice Beam"]
+  },
+  {
+    "PokedexNo": 145,
+    "Name": "Zapdos",
+    "Type": "Electric, Flying",
+    "Moves": ["Peck", "Thunderbolt", "Thunder"]
+  },
+  {
+    "PokedexNo": 146,
+    "Name": "Moltres",
+    "Type": "Fire, Flying",
+    "Moves": ["Peck", "Fire Blast", "Flamethrower"]
+  },
+  {
+    "PokedexNo": 147,
+    "Name": "Dratini",
+    "Type": "Dragon",
+    "Moves": ["Wrap", "Thunder Wave", "Dragon Pulse"]
+  },
+  {
+    "PokedexNo": 148,
+    "Name": "Dragonair",
+    "Type": "Dragon",
+    "Moves": ["Wrap", "Thunder Wave", "Dragon Pulse", "Dragon Rush"]
+  },
+  {
+    "PokedexNo": 149,
+    "Name": "Dragonite",
+    "Type": "Dragon, Flying",
+    "Moves": ["Wrap", "Thunder Wave", "Dragon Pulse", "Dragon Rush"]
+  },
+  {
+    "PokedexNo": 150,
+    "Name": "Mewtwo",
+    "Type": "Psychic",
+    "Moves": ["Psycho Cut", "Psychic", "Hyper Beam"]
+  },
+  {
+    "PokedexNo": 151,
+    "Name": "Mew",
+    "Type": "Psychic",
+    "Moves": ["Pound", "Psychic", "Solar Beam"]
+  }
+]

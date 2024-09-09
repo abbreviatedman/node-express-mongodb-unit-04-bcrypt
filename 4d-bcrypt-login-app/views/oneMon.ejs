@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pokemon.Name %></title>
+</head>
+<body>
+    <!-- Takes clients back to the entire collection -->
+    <a href="/allMons">Back to all Pokemon</a>
+
+    <h1>
+        PokedexNo: <%= pokemon.PokedexNo %>
+    </h1>
+    <h2>
+        Name: <%= pokemon.Name %>
+    </h2>
+    <h3>
+        Type: <%= pokemon.Type %>
+    </h3>
+    <ul>
+        Moves:
+        <% pokemon.Moves.forEach( (move) => { %>
+                <li>
+                    <%= move %>
+                </li>
+            <% }) %>
+    </ul>
+
+    <a href="/updateMon/<%=pokemon.Name%>">Update this pokemon</a>
+    <br>
+    <br>
+    <!-- 20. Add the "Add this pokemon to favorite" button -->
+    
+
+    <br>
+    <br>
+    
+    <!-- When submitted, this sends the name to the back-end to delete THIS document from the collection -->
+    <form action="/api/pokemon/deleteOnePokemon/<%=pokemon.Name%>?_method=DELETE" method="post">
+        <input type="submit" name="_method" value="DELETE THIS POKEMON">
+    </form>
+</body>
+</html>
