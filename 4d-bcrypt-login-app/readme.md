@@ -35,7 +35,7 @@ In other words, we're giving this application the following features:
 
 - In the terminal, use command `node index.js` to start up the server. Navigate to `localhost:3000/` in the browser to test that the application works.
 
-- Refresh your MongoDB Compass to see the `login-app` database. The `pokemons` collection should be empty to begin with. Select it, click on the green `ADD DATA` button, select `import file`, and select the `allPokemon.json` file found on the models folder of this appliction
+- Refresh your MongoDB Compass to see the `login-app` database. The `pokemons` collection should be empty to begin with. Select it, click on the green `ADD DATA` button, select `import file`, and select the `allPokemon.json` file found on the models folder of this application
 
 - In the browser, navigate to `http://localhost:3000/allMons` to make sure it can be seen on the client side
 
@@ -45,27 +45,28 @@ In other words, we're giving this application the following features:
 
 The goal here is to create a Users collection, give it a property that relates to the original data collection, and test it on the back-end.
 
-- Create the following file: `./models/userModel.js`
+- Create the following file: `./models/usersModel.js`
 
 1. Create a User model
-<!-- 1. Create a User model -->
 
 ```js
 const mongoose = require("mongoose");
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 // Settings for each document within this collection
-const userSchema = new mongoose.Schema({
+const usersSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
     required: true,
   },
+
   password: {
     type: String,
     required: true,
   },
-  favoritePokemon: {
+
+  favoritePokemons: {
     type: [
       {
         type: ObjectId,
@@ -75,7 +76,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", usersSchema);
 
 module.exports = User;
 ```
@@ -84,52 +85,39 @@ Next, it's time to set up a controller and route on the back-end to test it. To 
 
 - In terminal, use command `npm install bcrypt`
 
-- Create the following file: `./controllers/api/userController.js`
+- Create the following file: `./controllers/api/usersController.js`
 
-2. Create a userController, with a createUser function
-<!-- 2. Create a userController, with a createUser function -->
+2. Create a usersController, with a createUser function
 
 ```js
-const User = require("../../models/userModel");
+const User = require("../../models/usersModel");
 const bcrypt = require("bcrypt");
 
-async function createUser(req, res) {
+async function createUser(userInfo) {
   try {
-    // Gather user credentials from the client
-    let { username, password } = req.body;
+    // Gather user credentials.
+    const { username, password } = userInfo;
 
     // Generate a salt
-    let salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(10);
 
-    // Encrypt the user password
-    let encryptedPassword = await bcrypt.hash(password, salt);
+    // Encrypt the user password.
+    const encryptedPassword = await bcrypt.hash(password, salt);
 
-    // Generate the user document
-    let newUserObj = {
+    // Generate the user object
+    const newUserObj = {
       username: username,
       password: encryptedPassword,
-      favoritePokemon: [],
+      favoritePokemons: [],
     };
 
     // Insert the document into the User collection
-    await User.create(newUserObj);
+    const newUser = await User.create(newUserObj);
 
-    // Respond to the client - back-end
-    res.json({
-      message: "success",
-      payload: newUserObj,
-    });
-  } catch (err) {
-    let errorObj = {
-      message: "create user failure",
-      payload: error,
-    };
-
-    // server-side
-    console.log(errorObj);
-
-    // client-side
-    res.json(errorObj);
+    // Return that user.
+    return newUser;
+  } catch (error) {
+    throw error;
   }
 }
 
@@ -140,16 +128,33 @@ module.exports = {
 
 Next, there should be a route for the server to listen to the request
 
-- Create the following file: `./routes/api/userRouter.js`
+- Create the following file: `./routes/api/usersRouter.js`
 
 3. Create a user router
-<!-- 3. Create a user router -->
 
 ```js
-const router = require("express").Router();
-const { createUser } = require("../../controllers/api/userController");
+const express = require("express");
 
-router.post("/createUser", createUser);
+const router = express.Router();
+const { createUser } = require("../../controllers/api/usersController");
+
+router.post("/", async function (req, res) {
+  try {
+    const newUser = await createUser(req.body);
+    res.status(200).json({
+      message: 'success',
+      payload: newUser,
+    })
+  } catch (error) {
+    const errorPacket = {
+      message: 'failure in creating a user',
+      payload: error,
+    };
+    
+    res.status(500).json(errorPacket);
+    console.log(errorPacket);
+  }
+});
 
 module.exports = router;
 ```
@@ -157,17 +162,16 @@ module.exports = router;
 Next, it's time to connect the router to the server
 
 4. Plug in the user router
-<!-- 4. Plug in the user router -->
 
 ```js
-const userRouter = require("./routes/api/userRouter");
-app.use("/api/user", userRouter);
+const usersRouter = require("./routes/api/usersRouter");
+app.use("/api/users", usersRouter);
 ```
 
-Finally, it's time to test this out with Postman
+Finally, it's time to test this out with Postman:
 
-- Start up the server using command `node index.js` in terminal
-- In postman, create a POST request to `localhost:3000/api/user/createUser`. Make sure to open body > raw > text -> JSON and create an object with a `username` property and `password` property. Here's an example:
+- Start up the server using command `node index.js` in terminal.
+- In Postman, create a POST request to `localhost:3000/api/users`. Make sure to open body > raw > text -> JSON and create an object with a `username` property and `password` property. Here's an example:
 
 ```js
 {
@@ -176,7 +180,7 @@ Finally, it's time to test this out with Postman
 }
 ```
 
-- Once it works, turn the server off
+- Once it works, turn the server off.
 
 ## Sign up page
 
@@ -200,7 +204,7 @@ Here, we will set up a view to sign up, and a view to log in. The sign up page w
     <a href="/">Head back to the home page</a>
 
     <!-- Sign up form -->
-    <form action="/api/user/createUser" method="POST">
+    <form action="/api/users" method="POST">
       <div>
         <label for="username">Username</label>
         <input
@@ -226,7 +230,7 @@ Here, we will set up a view to sign up, and a view to log in. The sign up page w
 </html>
 ```
 
-- Create the following file: `./views/logIn.ejs`
+- Create the following file: `./views/login.ejs`
 
 ```html
 <!DOCTYPE html>
@@ -244,7 +248,7 @@ Here, we will set up a view to sign up, and a view to log in. The sign up page w
     <a href="/">Head back to the home page</a>
 
     <!-- Sign up form -->
-    <form action="/api/user/logInUser" method="POST">
+    <form action="/api/users/login" method="POST">
       <div>
         <label for="username">Username</label>
         <input
@@ -270,10 +274,9 @@ Here, we will set up a view to sign up, and a view to log in. The sign up page w
 </html>
 ```
 
-Next, go back to `./controllers/api/userController.js` and change the response to the client, to redirect to the login page
+Next, go back to `./controllers/api/usersController.js` and change the response to the client, to redirect to the login page
 
 5. Modify the user controller to handle front-end sign ups
-<!-- 5. Modify the user controller to handle front-end sign ups -->
 
 ```js
 // Respond to the client - back-end
@@ -283,15 +286,14 @@ Next, go back to `./controllers/api/userController.js` and change the response t
 // })
 
 // Respond to the client - front-end
-res.redirect("/logIn");
+res.redirect("/login");
 ```
 
 For this to work, we need to set up URL routes to render the views we just created.
 
-- On `./controllers/view/viewController.js`, write functions to render the sign up and log in pages
+- On `./controllers/views/viewsController.js`, write functions to render the signup and login pages
 
-6. Set up Sign up and Log in functions
-<!-- 6. Set up Sign up and Log in functions -->
+6. Set up Signup and Login functions
 
 ```js
 // Return a web page where clients can create a user by signing up
@@ -329,7 +331,6 @@ Next we set up a route for these.
 - On `./routes/viewRouters/viewRouter.js`, import the functions we just wrote. Then, set up the routes for the sign up form, and the log in form
 
 7. Set up sign-up and log-in form routes
-<!-- 7. Set up sign-up and log-in form routes -->
 
 ```js
 const {
@@ -364,7 +365,6 @@ Before setting up any more views, it's time to set up the ability for the server
 - On `index.js`, set up the necessary modules for login sessions
 
 8. Set up necessary modules for login sessions
-<!-- 8. Set up necessary modules for login sessions -->
 
 ```js
 require("dotenv").config();
@@ -381,7 +381,6 @@ COOKIE_SECRET="8tigre24deven3000"
 - On `index.js`, include the use of the cookie parser middleware
 
 9. Set up cookie parser middleware
-<!-- 9. Set up cookie parser middleware -->
 
 ```js
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -390,7 +389,6 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 - On `index.js`, set up the log in session
 
 10. Set up the login session
-<!-- 10. Set up the login session -->
 
 ```js
 // 24 hours in milliseconds
@@ -438,7 +436,7 @@ Let's begin with this plan.
     <a href="/allMons">See all the Pokemon in the database</a>
     <br />
     <ul>
-      <%=user.username%>'s Favorite Pokemon: <% favoritePokemon.forEach(
+      <%=user.username%>'s Favorite Pokemon: <% favoritePokemons.forEach(
       (pokemon) => { %>
       <li>
         <a href="/oneMon/<%=pokemon%>"><%= pokemon %></a>
@@ -458,7 +456,7 @@ On `./controllers/view/viewController.js`:
 11. A) Import the User collection
 
 ```js
-const User = require("../../models/userModel");
+const User = require("../../models/usersModel");
 ```
 
 11. B) Set up front-end function to render user page
@@ -474,15 +472,15 @@ async function renderUserPage(req, res) {
       // Find all pokemon on this user's favorite list
       let pokeNameList = [];
 
-      for (let i = 0; i < currentUser.favoritePokemon.length; i++) {
+      for (let i = 0; i < currentUser.favoritePokemons.length; i++) {
         let onePokemon = await Pokemon.findOne({
-          _id: currentUser.favoritePokemon[i],
+          _id: currentUser.favoritePokemons[i],
         });
 
         pokeNameList.push(onePokemon.Name);
       }
 
-      res.render("user", { user: currentUser, favoritePokemon: pokeNameList });
+      res.render("user", { user: currentUser, favoritePokemons: pokeNameList });
     } else {
       res.redirect("/logIn");
     }
@@ -507,7 +505,7 @@ Don't forget to import the `renderUserPage` function at the top of the page!!!
 
 It's important to note that the data that will be given to the user page will be the username, and the list of favorite pokemon **_by name_**. The way this data will be stored in the database is **_by id_**. So we will have to search through the Pokemon collection, find each by \_id, and store the array of names in the session's user object instead of \_id. This will all be done on the back end
 
-On `./controllers/api/userController.js`:
+On `./controllers/api/usersController.js`:
 
 13. Import the Pokemon collection
 <!-- 13. Import the Pokemon collection -->
@@ -577,7 +575,7 @@ Don't forget to export this function in `module.exports`!!!
 
 Next, we will create the route to use this function
 
-On `./routes/api/userRouter.js`:
+On `./routes/api/usersRouter.js`:
 
 15. Create a route to logInUser
 <!-- 15. Create a route to logInUser -->
@@ -652,7 +650,7 @@ Congratulations, Users can now log in and out of your application!!!
 
 Next, we have to add the ability to add favorite pokemon to the users. We will do this on the back-end first, then modify a lot of files to give the client the ability to do this on the front-end.
 
-On `./controllers/api/userController.js`:
+On `./controllers/api/usersController.js`:
 
 18. Create a function to add a pokemon's \_id to a user document
 <!-- 18. Create a function to add a pokemon's _id to a user document -->
@@ -668,12 +666,12 @@ async function addFavoritePokemonToUser(req, res) {
     // Find the user currently logged in
     let currentUser = await User.findById({ _id: userId });
 
-    // Add the Pokemon's ID to the favoritePokemon list
-    currentUser.favoritePokemon.push(req.body.pokeId);
+    // Add the Pokemon's ID to the `favoritePokemons` list
+    currentUser.favoritePokemons.push(req.body.pokeId);
 
     // Generate a clean object to change only the necessary properties on the User document
     let newUserObj = {
-      favoritePokemon: currentUser.favoritePokemon,
+      favoritePokemons: currentUser.favoritePokemons,
     };
 
     // Update the User document with the new favorite pokemon added
@@ -698,7 +696,7 @@ async function addFavoritePokemonToUser(req, res) {
 
 Don't forget to export this function in `module.exports`!!!
 
-On `./routes/api/userRouter.js`:
+On `./routes/api/usersRouter.js`:
 
 19. Create a route to add favorite pokemon
 <!-- 19. Create a route to add favorite pokemon -->
@@ -759,7 +757,7 @@ On `./controllers/view/viewController.js`:
 let userFaves;
 if (req.session.isAuth) {
   let currentUser = await User.findOne({ username: req.session.user.username });
-  userFaves = currentUser.favoritePokemon;
+  userFaves = currentUser.favoritePokemons;
 } else {
   userFaves = [];
 }
@@ -772,7 +770,7 @@ res.render("oneMon", {
 });
 ```
 
-On `./controllers/api/userController.js`:
+On `./controllers/api/usersController.js`:
 
 22. Modify addFavoritePokemonToUser() to respond to the client properly
 <!-- 22. Modify addFavoritePokemonToUser() to respond to the client properly -->
