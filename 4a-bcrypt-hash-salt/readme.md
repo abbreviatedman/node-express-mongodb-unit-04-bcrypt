@@ -36,7 +36,7 @@ That output can be used to compare against future hashes to see if the original 
 `$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy`
 
 - `2a`: The hash algorithm identifier (Bcrypt)
-- `10`: Cost factor (210 = 1,024 rounds of key expansion)
+- `10`: Cost factor (10 = 1,024 rounds of key expansion)
 - `N9qo8uLOickgx2ZMRZoMye`: 16-byte (128-bit) salt, base64 encoded to 22 characters
 - `IjZAgcfl7p92ldGxad68LJZdL17lhWy`: 24-byte (192-bit) hash, base64 encoded to 31 characters
 
@@ -137,9 +137,9 @@ async function comparePassword(incomingPassword, savedPassword) {
 
   console.log(`attempted password, encrypted: ${hashedPassword2}`);
 
-  let comparedPassword = await bcrypt.compare(incomingPassword, hashedPassword);
+  let isPasswordMatch = await bcrypt.compare(incomingPassword, hashedPassword);
 
-  if (!comparedPassword) {
+  if (!isPasswordMatch) {
     console.log("Please check your password and try again");
   } else {
     console.log("Logged in, Welcome!!");
