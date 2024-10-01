@@ -8,8 +8,8 @@ const {
 } = require("../controllers/userController");
 
 router.get("/", getAllUsers);
-router.post("/createUser", createUser);
-router.post("/loginUser", loginUser);
-router.put("/updatePassword", updatePassword);
+router.post("/", createUser);
+router.post("/login", loginUser);
+router.put("/", updatePassword);
 
 module.exports = router;
