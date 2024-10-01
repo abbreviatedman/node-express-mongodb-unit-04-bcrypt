@@ -2,7 +2,7 @@
 
 ---
 
-## What this lesson covers:
+### What this lesson covers:
 
 - What is Bcrypt
 - Concept: How encryption works
@@ -13,11 +13,11 @@
 
 ---
 
-## Bcrypt
+### Bcrypt
 
 Bcrypt is a password hashing function that is used to secure passwords in Node.
 
-## Hashing
+### Hashing
 
 Hashing a password is a way of securely storing a password in a database so that it cannot be easily accessed by unauthorized users. When a user creates an account and sets a password, the password is passed through a hash function, which converts it into a fixed-size string of characters, called a hash. The original password cannot be easily reconstructed from the hash, making it more secure.
 
@@ -40,7 +40,7 @@ That output can be used to compare against future hashes to see if the original 
 - `N9qo8uLOickgx2ZMRZoMye`: 16-byte (128-bit) salt, base64 encoded to 22 characters
 - `IjZAgcfl7p92ldGxad68LJZdL17lhWy`: 24-byte (192-bit) hash, base64 encoded to 31 characters
 
-## Salting
+### Salting
 
 Salting is a technique that is often used in conjunction with hashing to further improve the security of the password storage. When a password is hashed and salted, a random string of characters, called a salt, is generated and added to the password before it is hashed. The salt is then stored along with the hash in the database.
 
@@ -50,7 +50,7 @@ One of the main benefits of salting is that it makes it much more difficult for 
 
 If a password is weak (meaning it has less character variation, or has less characters overall), it means that the method of hashing the password becomes more easily revealed to someone who wishes to unlock all the passwords available. If a password is strong (meaning more characters, variation, etc.), it becomes more difficult to determine the method of hashing.
 
-## Rainbow Table
+### Rainbow Table
 
 A rainbow table is a pre-computed table of hashes that can be used to crack passwords. The idea behind a rainbow table is to create a large table of hashes in advance, and then use the table to look up the original password for a given hash.
 
@@ -67,14 +67,13 @@ In this example, the first column is the hash of the password, and the second co
 
 However, rainbow tables are only effective if the hashes in the table were created using the same hashing function and without a salt. If a salt was used, then the attacker would need to create a new rainbow table for each unique salt value, which is much more time-consuming and difficult. This is why salting is an important technique for improving the security of password storage.
 
-## Getting Started
+### Getting Started
 
 - Navigate to this root folder via the Terminal
 - Use command `npm init -y` to initialize the project
 - Use command `npm install bcrypt` to install the only module we need for this lesson.
 
 1. Import bcrypt
-<!-- 1. Import bcrypt -->
 
 ```js
 const bcrypt = require("bcrypt");
@@ -83,7 +82,6 @@ const bcrypt = require("bcrypt");
 Next, we're going to test how salting works.
 
 2. Write a generateSalt function
-<!-- 2. Write a generateSalt function -->
 
 ```js
 async function generateSalt() {
@@ -101,7 +99,6 @@ generateSalt();
 Next, we're going to combine hash and salt.
 
 3. Write a hashAndSalt function
-<!-- 3. Write a hashAndSalt function -->
 
 ```js
 async function hashAndSalt(password) {
@@ -121,37 +118,63 @@ hashAndSalt("fakePass");
 Finally, it's time to see how bcrypt compares passwords.
 
 4. Write a comparePassword function
-<!-- 4. Write a comparePassword function -->
 
 ```js
-async function comparePassword(incomingPassword, savedPassword) {
-  let salt = await bcrypt.genSalt(10);
-  let hashedPassword = await bcrypt.hash(savedPassword, salt);
+let storedPassword = "fakePass123";
 
+async function comparePassword(incomingPassword) {
+  // This hashing and storing of the password would happen when the user signs up.
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(storedPassword, salt);
+
+  // Very different passwords, but bcrypt can compare them!
   console.log(`incomingPassword: ${incomingPassword}`);
-  console.log(`savedPassword: ${savedPassword}`);
-  console.log(`hashedPassword from database: ${hashedPassword}`);
+  console.log(`storedPassword: ${hashedPassword}`);
 
-  // This is so we can see what BCrypt is doing to compare the 2
-  let hashedPassword2 = await bcrypt.hash(incomingPassword, salt);
-
-  console.log(`attempted password, encrypted: ${hashedPassword2}`);
-
-  let isPasswordMatch = await bcrypt.compare(incomingPassword, hashedPassword);
-
-  if (!isPasswordMatch) {
-    console.log("Please check your password and try again");
-  } else {
+  let isSamePassword = await bcrypt.compare(incomingPassword, hashedPassword);
+  if (isSamePassword) {
     console.log("Logged in, Welcome!!");
+  } else {
+    console.log("Please check your password and try again");
   }
 }
 
-comparePassword("fakePass123", "fakePass123");
-// comparePassword("fakePass123", "notTheSamePass");
+comparePassword("fakePass123");
+// comparePassword("notTheSamePass");
 ```
 
 Notice that bcrypt simply compares the passwords for you. When creating a user, the hashed version of the password is what gets saved to the database. This way, anybody who has access to the database can't learn your password and try it out on different websites. Bcrypt has it's ways of security and managing client's abilities to log in.
 
-## Extended Lesson
+### Extended Lesson
 
-Start a Database and begin storing usernames and passwords.
+##### Cost Factor
+
+Let's take a look at how Cost Factor (also known as Work Factor) affects the security of your app's passwords and the app's usability for end users.
+
+Cost Factor is the number passed as an argument to `bcrypt.genSalt`. It makes the process more secure, but also takes more time to encrypt each password, which costs time for the user on signup and login. For every increase of 1 to the Cost Factor, the time to hash a password is roughly doubled.
+
+Let's demonstrate that time. The below function uses `bcrypt` to hash the same password, with costs increasing from 10-17, reporting the time it takes for each Cost Factor:
+
+```js
+const measureCostFactorTime = async function() {
+  const plainTextPassword1 = "bad-password";
+  for (let costFactor = 10; costFactor <= 17; costFactor++) {
+    console.time(`bcrypt | cost: ${costFactor}, time to hash`);
+    const salt = await bcrypt.genSalt(costFactor);
+    await bcrypt.hash(plainTextPassword1, salt)
+    console.timeEnd(`bcrypt | cost: ${costFactor}, time to hash`);
+  }
+}
+
+measureCostFactorTime();
+```
+
+The developer community generally recommends that Cost Factor be increased every 1-2 years. The reason is that, although it makes login/signup take an extra half second or so, that intentional slowdown of `bcrypt` is a _feature_, not a bug, and is, in fact, the big revolution that `bcrypt` brought to password encryption.
+
+A slower encryption algorithm is actually more secure, as it means that for an attacker to decrypt a database full of passwords, they'll need to spend more compute power and time than is feasible, as long as the algorithm takes enough time for each password on the attacker's hardware. Since hardware gets continuously more powerful, the algorithm must be slowed periodically as well to keep up with the hardware's ability to decrypt passwords faster and faster. In fact, you may have a computer significantly faster than the one this code was originally written on, so you may want to adjust the end point of the loop to get the full slowdown effect!
+
+Because of this constant advancement in computer speed, an encryption algorithm that can easily scale the complexity of its encryption to match the increased compute power each year is a powerful tool, allowing us to keep our sensitive data secure without having to find increasingly more complex algorithms. 
+
+This does come at a cost to the end user: we're slowing down the process for login and signup. But the prevailing wisdom is to increase the slowdown only to the degree that signup/login takes about half a second extra. Some experts state that we should be using 1-2 seconds as our baseline, especially since most users go through a signup or login process reasonably rarely in modern systems. Either way, we can slow things down enough to continue to make our passwords tough to crack while maintaining a good user experience.
+
+If you and your team use `bcrypt` and keep the cost factor up to date, you'll have secure passwords without having to bother your users about it. And that's a huge win for everyone--except attackers.
