@@ -1,10 +1,10 @@
 const express = require("express");
-const app = express();
 const logger = require("morgan");
 const connectToMongoDb = require("./db/mongodb");
 
 const userRouter = require("./routes/userRouter");
 
+const app = express();
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
