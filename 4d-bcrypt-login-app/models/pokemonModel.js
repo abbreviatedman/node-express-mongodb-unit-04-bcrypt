@@ -2,25 +2,24 @@ const mongoose = require("mongoose");
 
 // Settings for each document within this collection
 const pokemonSchema = new mongoose.Schema({
-  PokedexNo: {
+  pokedexNo: {
     type: Number,
     unique: true,
     required: true,
   },
-  Name: {
+
+  name: {
     type: String,
     unique: true,
     required: true,
   },
-  Type: {
+
+  type: {
     type: String,
     required: true,
   },
-  Moves: [
-    {
-      type: String,
-    },
-  ],
+
+  moves: [String],
 });
 
 const Pokemon = mongoose.model("Pokemon", pokemonSchema);

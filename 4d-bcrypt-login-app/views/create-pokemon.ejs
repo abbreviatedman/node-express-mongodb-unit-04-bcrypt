@@ -1,0 +1,31 @@
+<!DOCtype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Pokemon</title>
+</head>
+<body>
+    <a href="/pokemons">Back to All pokemon</a>
+    <br>
+    <!-- This form, when submitted, sends form data to the back-end -->
+    <form action="/api/pokemons" method="post">
+
+        <!-- Each name attribute pertains to how it's captured in the back-end -->
+        <label for="pokedexNo">pokedexNo</label>
+        <input type="text" id="pokedexNo" name="pokedexNo"><br><br>
+
+        <label for="name">name</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="type">type</label>
+        <input type="text" id="type" name="type"><br><br>
+        
+        <label for="moves">moves</label>
+        <input type="text" id="moves" name="moves" size="50"><br><br>
+
+        <input type="submit" value="Create Pokemon">
+    </form>
+</body>
+</html>

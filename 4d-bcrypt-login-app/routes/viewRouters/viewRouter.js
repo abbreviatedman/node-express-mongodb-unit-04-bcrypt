@@ -14,14 +14,14 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-// localhost:3000/allMons
-router.get("/allMons", renderAllPokemon);
-// localhost:3000/oneMon/:name
-router.get("/oneMon/:name", renderOnePokemon);
-// localhost:3000/createOneMon
-router.get("/createOneMon", renderCreatePokemonForm);
-// localhost:3000/updateMon/:name
-router.get("/updateMon/:name", renderUpdatePokemonForm);
+// localhost:3000/pokemons
+router.get("/pokemons", renderAllPokemon);
+// localhost:3000/one-pokemon/:name
+router.get("/one-pokemon/:name", renderOnePokemon);
+// localhost:3000/createpokemons
+router.get("/create-pokemon", renderCreatePokemonForm);
+// localhost:3000/update-pokemon/:name
+router.get("/update-pokemon/:name", renderUpdatePokemonForm);
 
 /*
     7. Set up sign-up and log-in form routes

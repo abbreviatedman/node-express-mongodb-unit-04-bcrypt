@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCtype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,15 +15,15 @@
     <a href="/">Back to the homepage</a>
     <br>
     <!-- Takes client to a form page where they can create a new document -->
-    <a href="/createOneMon">Create a new Pokemon</a>
+    <a href="/create-pokemon">Create a new Pokemon</a>
 
     <!-- This populates each document in the collection -->
-    <% pokemon.forEach( (mon) => { %>
+    <% pokemons.forEach( (mon) => { %>
         <h1>
-            Pokedex No. <%= mon.PokedexNo %>
+            Pokedex No. <%= mon.pokedexNo %>
         </h1>
         <h2>
-            Name: <a href="/oneMon/<%=mon.Name%>"><%= mon.Name %></a>
+            Name: <a href="/one-pokemon/<%=mon.name%>"><%= mon.name %></a>
         </h2>
     <% }) %>
 

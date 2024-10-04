@@ -1,11 +1,8 @@
-// Gives access to the database collection
 const Pokemon = require("../../models/pokemonModel");
 
-// promises to return with every document in the collection in JSON
-async function getAllPokemon(req, res) {
+const getAllPokemon = async function (req, res) {
   try {
-    // result awaits the promise
-    let result = await Pokemon.find({});
+    const result = await Pokemon.find({});
 
     res.json({
       message: "success",
@@ -21,11 +18,9 @@ async function getAllPokemon(req, res) {
   }
 }
 
-// promises to return with ONE document in the collection
-async function getOnePokemon(req, res) {
+const getOnePokemon = async function (req, res) {
   try {
-    // result holds ONE document that was searched by name
-    let result = await Pokemon.find({ Name: req.params.name });
+    const result = await Pokemon.findOne({ name: req.params.name });
 
     res.json({
       message: "success",
@@ -43,19 +38,17 @@ async function getOnePokemon(req, res) {
   }
 }
 
-// promises to Post a new document to the Pokemon collection
-async function createOnePokemon(req, res) {
+const createOnePokemon = async function (req, res) {
   try {
     // Accept the front-end form data from the client, generates the document
-    let newPokemon = {
-      PokedexNo: req.body.PokedexNo,
-      Name: req.body.Name,
-      Type: req.body.Type,
-      // Parse the Moves string to be an array
-      Moves: req.body.Moves.split(", "),
+    const newPokemon = {
+      pokedexNo: req.body.pokedexNo,
+      name: req.body.name,
+      type: req.body.type,
+      // Parse the moves string to be an array
+      moves: req.body.moves.split(", "),
     };
 
-    // Post new document to the Pokemon collection
     await Pokemon.create(newPokemon);
 
     // res.json({
@@ -64,7 +57,7 @@ async function createOnePokemon(req, res) {
     // });
 
     // Redirect the client to the single pokemon page for the created pokemon
-    res.redirect(`/oneMon/${newPokemon.Name}`);
+    res.redirect(`/one-pokemon/${newPokemon.name}`);
   } catch (error) {
     // server-side
     console.log(`createOnePokemon error: ${error}`);
@@ -77,13 +70,11 @@ async function createOnePokemon(req, res) {
   }
 }
 
-// promises to Find ONE document by name and remove it from the collection
-async function deleteOnePokemon(req, res) {
+const deleteOnePokemon = async function (req, res) {
   try {
-    let deleteTarget = req.params.name;
+    const deleteTarget = req.params.name;
 
-    // Find ONE document by name and remove it from the collection
-    await Pokemon.deleteOne({ Name: deleteTarget });
+    await Pokemon.deleteOne({ name: deleteTarget });
 
     // res.json({
     //     message: "success",
@@ -91,7 +82,7 @@ async function deleteOnePokemon(req, res) {
     // });
 
     // Return the client to the webpage that shows the entire collection
-    res.redirect("/allMons");
+    res.redirect("/pokemons");
   } catch (error) {
     // server-side
     console.log(`deleteOnePokemon error: ${error}`);
@@ -104,27 +95,22 @@ async function deleteOnePokemon(req, res) {
   }
 }
 
-// promises to find ONE document by name and update the document in the collection
-async function updateOnePokemon(req, res) {
+const updateOnePokemon = async function (req, res) {
   try {
-    // let updatedMon = req.body;
-
     // Take in front-end form data to generate new document
-    let updatedMon = {
-      PokedexNo: req.body.PokedexNo,
-      Name: req.body.Name,
-      Type: req.body.Type,
-      // Parse the Moves string to be an array
-      Moves: req.body.Moves.split(", "),
+    const updatedMon = {
+      pokedexNo: req.body.pokedexNo,
+      name: req.body.name,
+      type: req.body.type,
+      // Parse the moves string to be an array
+      moves: req.body.moves.split(", "),
     };
 
     await Pokemon.updateOne(
       // Target the document to be updated
-      { Name: req.params.name },
+      { name: req.params.name },
       // Insert the document, with updated details, where it originally was
-      { $set: updatedMon },
-      // Upsert is update + insert. This setting is = true
-      { upsert: true }
+      updatedMon,
     );
 
     // res.json({
@@ -132,7 +118,7 @@ async function updateOnePokemon(req, res) {
     //     payload: updatedMon
     // })
 
-    res.redirect(`/oneMon/${updatedMon.Name}`);
+    res.redirect(`/one-pokemon/${updatedMon.name}`);
   } catch (error) {
     // server-side
     console.log(`updateOnePokemon: ${error}`);

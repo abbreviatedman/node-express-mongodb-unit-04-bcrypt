@@ -1,0 +1,31 @@
+<!DOCtype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update <%=pokemon.name%></title>
+</head>
+<body>
+    <a href="/one-pokemon/<%=pokemon.name%>">Back to <%=pokemon.name%> info</a>
+
+    <!-- This form, when submitted, sends form data to the back-end -->
+    <form action="/api/pokemons/<%=pokemon.name%>?_method=PUT" method="post">
+
+        <!-- Each name attribute pertains to how it's captured in the back-end -->
+        <label for="pokedexNo">pokedexNo</label>
+        <input type="text" placeholder="<%=pokemon.pokedexNo%>" value="<%=pokemon.pokedexNo%>" id="pokedexNo" name="pokedexNo"><br><br>
+
+        <label for="name">name</label>
+        <input type="text" placeholder="<%=pokemon.name%>" value="<%=pokemon.name%>" id="name" name="name"><br><br>
+
+        <label for="type">type</label>
+        <input type="text" placeholder="<%=pokemon.type%>" value="<%=pokemon.type%>" id="type" name="type"><br><br>
+        
+        <label for="moves">moves</label>
+        <input type="text" placeholder="<%=pokemon.moves.join(", ")%>" value="<%=pokemon.moves.join(", ")%>" id="moves" name="moves" size="50"><br><br>
+
+        <input type="submit" name="_method" value="Update Pokemon">
+    </form>
+</body>
+</html>

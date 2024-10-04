@@ -1,5 +1,5 @@
 /*
-    Importing necessary modules
+  Importing necessary modules
 */
 const express = require("express");
 const app = express();
@@ -7,14 +7,14 @@ const path = require("path");
 const logger = require("morgan");
 const methodOverride = require("method-override");
 // connection to our database
-const connectToMongoDB = require("./database/mongodb");
+const connectToMongoDb = require("./database/mongodb");
 
 /*
-    8. Set up necessary modules for login sessions
+  8. Set up necessary modules for login sessions
 */
 
 /*
-    Setting up middleware
+  Setting up middleware
 */
 // view engine settings
 app.set("view engine", "ejs");
@@ -29,22 +29,22 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 
 /*
-    9. Set up cookie parser middleware
+  9. Set up cookie parser middleware
 */
 
 /*
-    10. Set up the login session
+  10. Set up the login session
 */
 
 /*
-    Connecting routers, using URL extensions
+  Connecting routers, using URL extensions
 */
 // Back-end
 const pokemonRouter = require("./routes/api/pokemonRouter");
-app.use("/api/pokemon", pokemonRouter);
+app.use("/api/pokemons", pokemonRouter);
 
 /*
-    4. Plug in the user router
+  4. Plug in the user router
 */
 
 // Front-end
@@ -52,12 +52,12 @@ const viewsRouter = require("./routes/viewRouters/viewRouter");
 app.use("/", viewsRouter);
 
 /*
-    Turning the server on
+  Turning the server on
 */
 const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`server is on ${PORT}`);
 
-  connectToMongoDB();
+  connectToMongoDb();
 });

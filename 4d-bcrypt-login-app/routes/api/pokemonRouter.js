@@ -11,18 +11,19 @@ const {
   updateOnePokemon,
 } = require("../../controllers/api/pokemonController");
 
-// localhost:3000/api/allPokemon
-router.get("/allPokemon", getAllPokemon);
-// localhost:3000/api/onePokemon/:name
-router.get("/onePokemon/:name", getOnePokemon);
+// GET localhost:3000/api/pokemons
+router.get("/", getAllPokemon);
 
-// localhost:3000/api/createOnePokemon
-router.post("/createOnePokemon", createOnePokemon);
+// GET localhost:3000/api/pokemons/:name
+router.get("/:name", getOnePokemon);
 
-// localhost:3000/api/updateOnePokemon/:name
-router.put("/updateOnePokemon/:name", updateOnePokemon);
+// POST localhost:3000/api/pokemons
+router.post("/", createOnePokemon);
 
-// localhost:3000/api/deleteOnePokemon/:name
-router.delete("/deleteOnePokemon/:name", deleteOnePokemon);
+// PUT localhost:3000/api/pokemons/:name
+router.put("/:name", updateOnePokemon);
+
+// DELETE localhost:3000/api/pokemons/:name
+router.delete("/:name", deleteOnePokemon);
 
 module.exports = router;
